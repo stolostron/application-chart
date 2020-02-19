@@ -75,7 +75,7 @@ spec:
           effect: NoSchedule
       containers:
       - name: mcm-application-ui
-        image: "{{ .Values.mcmapplicationui.image.repository }}:{{ .Values.mcmapplicationui.image.tag }}"
+        image: "{{ .Values.mcmapplicationui.image.repository }}/{{ .Values.mcmapplicationui.image.name }}:{{ .Values.mcmapplicationui.image.tag }}{{ .Values.imageTagPostfix }}"
         imagePullPolicy: {{ .Values.mcmapplicationui.image.pullPolicy }}
         resources:
         {{- toYaml .Values.mcmapplicationui.resources | nindent 10 }}

@@ -5,11 +5,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "application.fullname" . }}-mcmapplicationui
+  name: {{ template "application.fullname" . }}-applicationui
   labels:
     app: {{ template "application.name" . }}
     chart: {{ template "application.chart" . }}
-    component: "mcmapplicationui"
+    component: "applicationui"
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
     app.kubernetes.io/instance: {{ .Release.Name }}
@@ -21,13 +21,13 @@ spec:
   selector:
     matchLabels:
       app: {{ template "application.name" . }}
-      component: "mcmapplicationui"
+      component: "applicationui"
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ template "application.name" . }}
-        component: "mcmapplicationui"
+        component: "applicationui"
         release: {{ .Release.Name }}
         chart: {{ template "application.chart" . }}
         heritage: {{ .Release.Service }}
@@ -67,18 +67,18 @@ spec:
                 - key: component
                   operator: In
                   values:
-                  - mcmapplicationui
+                  - applicationui
               topologyKey: failure-domain.beta.kubernetes.io/zone
       tolerations:
         - key: dedicated
           operator: Exists
           effect: NoSchedule
       containers:
-      - name: mcm-application-ui
-        image: "{{ .Values.mcmapplicationui.image.repository }}/{{ .Values.mcmapplicationui.image.name }}:{{ .Values.mcmapplicationui.image.tag }}{{ .Values.imageTagPostfix }}"
-        imagePullPolicy: {{ .Values.mcmapplicationui.image.pullPolicy }}
+      - name: application-ui
+        image: "{{ .Values.applicationui.image.repository }}/{{ .Values.applicationui.image.name }}:{{ .Values.applicationui.image.tag }}{{ .Values.imageTagPostfix }}"
+        imagePullPolicy: {{ .Values.applicationui.image.pullPolicy }}
         resources:
-        {{- toYaml .Values.mcmapplicationui.resources | nindent 10 }}
+        {{- toYaml .Values.applicationui.resources | nindent 10 }}
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:

@@ -5,10 +5,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "application.fullname" . }}-mcmapplicationui
+  name: {{ template "application.fullname" . }}-applicationui
   labels:
     app: {{ template "application.name" . }}
-    component: "mcmapplicationui"
+    component: "applicationui"
     chart: {{ template "application.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -24,6 +24,6 @@ spec:
       name: http
   selector:
     app: {{ template "application.name" . }}
-    component: "mcmapplicationui"
+    component: "applicationui"
     release: {{ .Release.Name }}
   

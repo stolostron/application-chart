@@ -24,10 +24,10 @@ cfcRouterUrl: "https://icp-management-ingress:443"
 consoleName: "multicluster-hub-console"
 
 enabled: true
-mcmapplicationui:
+applicationui:
   image:
     repository: quay.io/open-cluster-management
-    name: mcm-application-ui
+    name: application-ui
     tag: 3.5.0
     pullPolicy: Always
   resources:

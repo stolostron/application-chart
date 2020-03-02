@@ -99,16 +99,6 @@ spec:
           value: {{ .Release.Name }}-nav
         - name: PLATFORM_IDENTITY_PROVIDER_URL
           value: {{ .Values.cfcRouterUrl }}/idprovider
-        - name: WLP_CLIENT_ID
-          valueFrom:
-            secretKeyRef:
-              key: WLP_CLIENT_ID
-              name: platform-oidc-credentials
-        - name: WLP_CLIENT_SECRET
-          valueFrom:
-            secretKeyRef:
-              key: WLP_CLIENT_SECRET
-              name: platform-oidc-credentials
         ports:
         - containerPort: 3001
           protocol: TCP

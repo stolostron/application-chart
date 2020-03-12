@@ -36,6 +36,8 @@ spec:
         app.kubernetes.io/managed-by: {{ .Release.Service }}
         app.kubernetes.io/name: {{ template "application.name" . }}
         helm.sh/chart: {{ template "application.chart" . }}
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: docker/default  
     spec:
       hostNetwork: false
       hostPID: false

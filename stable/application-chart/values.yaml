@@ -22,7 +22,7 @@ nodeSelector:
   customLabelSelector: ""
   customLabelValue: ""
 cfcRouterUrl: "https://management-ingress:443"
-consoleName: "multicluster-hub-console"
+consoleName: "console-api"
 
 enabled: true
 applicationui:

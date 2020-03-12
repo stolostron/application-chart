@@ -90,7 +90,7 @@ spec:
         - name: ICP_STANDALONE
           value: "{{ .Values.standalone }}"
         - name: hcmUiApiUrl
-          value: https://{{ .Values.consoleName }}-consoleapi:4000/hcmuiapi
+          value: https://{{ .Values.consoleName }}:4000/hcmuiapi
         - name: searchApiUrl
           value: https://search-search-api:4010/searchapi
         - name: cfcRouterUrl

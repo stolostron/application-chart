@@ -6,8 +6,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    icp.management.ibm.com/auth-type: access-token
-    kubernetes.io/ingress.class: ibm-icp-management
+    ingress.open-cluster-management.io/auth-type: access-token
+    kubernetes.io/ingress.class: ingress-open-cluster-management
   name: {{ template "application.fullname" . }}-applicationui
   labels:
     app: {{ template "application.name" . }}

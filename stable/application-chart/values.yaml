@@ -8,6 +8,8 @@
 # Declare variables to be passed into your templates.
 
 global:
+  image:
+      pullPolicy: Always
   imageOverrides:
     application_ui: ""
 
@@ -29,8 +31,6 @@ cfcRouterUrl: "https://management-ingress:443"
 
 enabled: true
 applicationui:
-  image:
-    pullPolicy: Always
   resources:
     requests:
       memory: "256Mi"

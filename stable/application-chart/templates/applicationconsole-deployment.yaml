@@ -73,7 +73,7 @@ spec:
       containers:
       - name: application-ui
         image: {{ .Values.global.imageOverrides.application_ui }}
-        imagePullPolicy: {{ .Values.applicationui.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.global.image.pullPolicy }}
         resources:
         {{- toYaml .Values.applicationui.resources | nindent 10 }}
         securityContext:

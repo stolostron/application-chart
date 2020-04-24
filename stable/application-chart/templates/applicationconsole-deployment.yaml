@@ -72,12 +72,8 @@ spec:
           effect: NoSchedule
       containers:
       - name: application-ui
-{{- if .Values.imageShaDigests.application_ui }}
-        image: "{{ .Values.applicationui.image.repository }}/{{ .Values.applicationui.image.name }}@{{ .Values.imageShaDigests.application_ui }}"
-{{- else }}
-        image: "{{ .Values.applicationui.image.repository }}/{{ .Values.applicationui.image.name }}:{{ .Values.applicationui.image.tag }}{{ .Values.imageTagPostfix }}"
-{{- end }}
-        imagePullPolicy: {{ .Values.applicationui.image.pullPolicy }}
+        image: {{ .Values.global.imageOverrides.application_ui }}
+        imagePullPolicy: {{ .Values.global.pullPolicy }}
         resources:
         {{- toYaml .Values.applicationui.resources | nindent 10 }}
         securityContext:

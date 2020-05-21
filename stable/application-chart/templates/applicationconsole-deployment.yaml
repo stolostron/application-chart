@@ -35,13 +35,12 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
         app.kubernetes.io/name: {{ template "application.name" . }}
-        helm.sh/chart: {{ template "application.chart" . }}
-      annotations:
-        seccomp.security.alpha.kubernetes.io/pod: docker/default  
+        helm.sh/chart: {{ template "application.chart" . }}  
     spec:
       hostNetwork: false
       hostPID: false
       hostIPC: false
+      serviceAccountName: {{ template "application.fullname" . }}
       securityContext:
         runAsNonRoot: true
       affinity:

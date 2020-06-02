@@ -54,17 +54,10 @@ spec:
                 {{- range .Values.arch }}
                 - {{ . }}
                 {{- end }}
+        {{- with .Values.affinity }}
         podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: component
-                  operator: In
-                  values:
-                  - applicationui
-              topologyKey: failure-domain.beta.kubernetes.io/zone
+  {{ toYaml . | indent 10 }}
+      {{- end }}
       tolerations:
         - key: dedicated
           operator: Exists
@@ -122,12 +115,7 @@ spec:
       imagePullSecrets:
       - name: {{ .Values.pullSecret }}
       {{- end }}
-      {{- if .Values.nodeSelector.enabled }}
+      {{- with .Values.hubconfig.nodeSelector }}
       nodeSelector:
-      {{- if .Values.nodeSelector.os }}
-        "beta.kubernetes.io/os" : {{ .Values.nodeSelector.os }}
-      {{- end }}
-      {{- if .Values.nodeSelector.customLabelSelector }}
-        {{ .Values.nodeSelector.customLabelSelector }} : {{ .Values.nodeSelector.customLabelValue}}
-      {{- end }}
+      {{ toYaml . | indent 8 }}
       {{- end }}

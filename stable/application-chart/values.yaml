@@ -12,6 +12,32 @@ global:
   imageOverrides:
     application_ui: ""
 
+hubconfig:
+  nodeSelector: ""
+
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 70
+      podAffinityTerm:
+        topologyKey: failure-domain.beta.kubernetes.io/zone
+        labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - application-ui
+    - weight: 35
+      podAffinityTerm:
+        topologyKey: kubernetes.io/hostname
+        labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - application-ui
+
 standalone: false
 pullSecret: null
 arch:

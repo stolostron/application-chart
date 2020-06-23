@@ -18,7 +18,7 @@ metadata:
     app.kubernetes.io/name: {{ template "application.name" . }}
     helm.sh/chart: {{ template "application.chart" . }}
 spec:
-  replicas: {{ .Values.hubconfig.replicas }}
+  replicas: {{ .Values.hubconfig.replicaCount }}
   selector:
     matchLabels:
       app: {{ template "application.name" . }}

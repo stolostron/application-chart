@@ -96,7 +96,7 @@ spec:
           httpGet:
             path: /livenessProbe
             port: 3001
-            scheme: HTTP
+            scheme: HTTPS
           initialDelaySeconds: 30
           periodSeconds: 30
           successThreshold: 1
@@ -106,15 +106,29 @@ spec:
           httpGet:
             path: /readinessProbe
             port: 3001
-            scheme: HTTP
+            scheme: HTTPS
           initialDelaySeconds: 5
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
+        volumeMounts:
+        - name: applicationui-certs
+          mountPath: /certs
       {{- if .Values.pullSecret }}
       imagePullSecrets:
       - name: {{ .Values.pullSecret }}
       {{- end }}
+      volumes:
+      - name: applicationui-certs
+        secret:
+          secretName: {{ template "application.fullname" . }}-applicationui-secrets
+          items:
+          - key: ca.crt
+            path: applicationuica.crt
+          - key: tls.crt
+            path: applicationui.crt
+          - key: tls.key
+            path: applicationui.key
       {{- with .Values.hubconfig.nodeSelector }}
       nodeSelector:
       {{ toYaml . | indent 8 }}

@@ -8,7 +8,7 @@ kind: Deployment
 metadata:
   name: {{ template "application.fullname" . }}-applicationui
   labels:
-    app: {{ template "application.name" . }}
+    app: {{ template "application.name" . }}    
     chart: {{ template "application.chart" . }}
     component: "applicationui"
     release: {{ .Release.Name }}
@@ -28,6 +28,7 @@ spec:
     metadata:
       labels:
         app: {{ template "application.name" . }}
+        ocm-antiaffinity-selector: "applicationui"
         component: "applicationui"
         release: {{ .Release.Name }}
         chart: {{ template "application.chart" . }}

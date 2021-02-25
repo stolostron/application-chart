@@ -45,7 +45,6 @@ affinity:
             values:
             - applicationui
 
-standalone: false
 pullSecret: null
 arch:
 - amd64
@@ -57,7 +56,6 @@ nodeSelector:
   os: ""
   customLabelSelector: ""
   customLabelValue: ""
-cfcRouterUrl: "https://management-ingress:443"
 
 enabled: true
 applicationui:

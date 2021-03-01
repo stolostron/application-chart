@@ -15,6 +15,13 @@ Open Cluster Management Application console Helm chart
 
 ------
 
+## Work in Progress
+ We are in the process of enabling this repo for community contribution. See wiki [here](https://open-cluster-management.io/concepts/architecture/).
+
+## Community, discussion, contribution, and support
+
+Check the [CONTRIBUTING Doc](CONTRIBUTING.md) for how to contribute to the repo.
+
 ## Getting Started
 Application chart is a helm chart used for deploying the [Application console](https://github.com/open-cluster-management/application-ui). This is a guide on how to build and run open-cluster-management application-chart.
 

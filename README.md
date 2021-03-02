@@ -35,3 +35,20 @@ git clone https://github.com/open-cluster-management/application-chart.git
 cd application-chart
 helm package stable/application-chart
 </pre>
+
+## Testing on an existing OKD cluster with OCM
+
+Make sure you are logged in using `oc`.
+
+<pre>
+export GITHUB_TOKEN=&lt;your github personal access token&gt;
+export GITHUB_USER=&lt;your github id&gt;
+cd ..
+git clone https://github.com/open-cluster-management/multicloudhub-repo.git
+cd application-chart
+cp application-chart-&lt;version&gt;.tgz ../multicloudhub-repo/multiclusterhub/charts
+cd ../multicloudhub-repo
+oc annotate mch multiclusterhub -n open-cluster-management mch-pause=true
+make update-charts
+oc annotate mch multiclusterhub -n open-cluster-management mch-pause=false --overwrite
+</pre>

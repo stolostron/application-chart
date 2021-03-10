@@ -34,6 +34,7 @@ Application chart is a helm chart used for deploying the [Application console](h
 git clone https://github.com/open-cluster-management/application-chart.git
 cd application-chart
 helm package stable/application-chart
+
 </pre>
 
 ## Testing on an existing OKD cluster with OCM

@@ -120,8 +120,6 @@ spec:
         secret:
           secretName: {{ template "application.fullname" . }}-applicationui-secrets
           items:
-          - key: ca.crt
-            path: applicationuica.crt
           - key: tls.crt
             path: applicationui.crt
           - key: tls.key

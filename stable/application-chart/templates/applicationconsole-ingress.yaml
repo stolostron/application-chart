@@ -26,6 +26,9 @@ spec:
   - http:
       paths:
       - path: /multicloud/applications
+        pathType: ImplementationSpecific
         backend:
-          serviceName: {{ template "application.fullname" . }}-applicationui
-          servicePort: 3001
+          service:
+            name: {{ template "application.fullname" . }}-applicationui
+            port:
+              number: 3001

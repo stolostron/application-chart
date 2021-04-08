@@ -107,17 +107,6 @@ spec:
             - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        env:
-        - name: cfcRouterUrl
-          value: {{ .Values.cfcRouterUrl }}
-        - name: hcmApiVersion
-          value: V2
-        - name: complianceNamespace
-          value: {{- if (.Values.compliance.mcmNamespace) }}
-            {{ .Values.compliance.mcmNamespace }}
-            {{- else }}
-            {{ .Release.Namespace }}
-            {{- end }}
         ports:
         - containerPort: 4000
           protocol: TCP

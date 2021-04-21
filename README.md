@@ -44,10 +44,10 @@ Make sure you are logged in using `oc`.
 export GITHUB_TOKEN=&lt;your github personal access token&gt;
 export GITHUB_USER=&lt;your github id&gt;
 cd ..
-git clone https://github.com/open-cluster-management/multicloudhub-repo.git
+git clone https://github.com/open-cluster-management/multiclusterhub-repo.git
 cd application-chart
-cp application-chart-&lt;version&gt;.tgz ../multicloudhub-repo/multiclusterhub/charts
-cd ../multicloudhub-repo
+cp application-chart-&lt;version&gt;.tgz ../multiclusterhub-repo/multiclusterhub/charts
+cd ../multiclusterhub-repo
 oc annotate mch multiclusterhub -n open-cluster-management mch-pause=true
 make update-charts
 oc annotate mch multiclusterhub -n open-cluster-management mch-pause=false --overwrite

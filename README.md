@@ -23,7 +23,7 @@ Open Cluster Management Application console Helm chart
 Check the [CONTRIBUTING Doc](CONTRIBUTING.md) for how to contribute to the repo.
 
 ## Getting Started
-Application chart is a helm chart used for deploying the [Application console](https://github.com/open-cluster-management/application-ui). This is a guide on how to build and run open-cluster-management application-chart.
+Application chart is a helm chart used for deploying the [Application console](https://github.com/stolostron/application-ui). This is a guide on how to build and run stolostron application-chart.
 
 ## Prerequisite Tools
 
@@ -31,7 +31,7 @@ Application chart is a helm chart used for deploying the [Application console](h
 
 ## Building for Development
 <pre>
-git clone https://github.com/open-cluster-management/application-chart.git
+git clone https://github.com/stolostron/application-chart.git
 cd application-chart
 helm package stable/application-chart
 </pre>
@@ -44,7 +44,7 @@ Make sure you are logged in using `oc`.
 export GITHUB_TOKEN=&lt;your github personal access token&gt;
 export GITHUB_USER=&lt;your github id&gt;
 cd ..
-git clone https://github.com/open-cluster-management/multiclusterhub-repo.git
+git clone https://github.com/stolostron/multiclusterhub-repo.git
 cd application-chart
 cp application-chart-&lt;version&gt;.tgz ../multiclusterhub-repo/multiclusterhub/charts
 cd ../multiclusterhub-repo

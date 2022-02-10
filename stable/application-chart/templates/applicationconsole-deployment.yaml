@@ -56,17 +56,14 @@ spec:
                 {{- range .Values.arch }}
                 - {{ . }}
                 {{- end }}
-        {{- with .Values.affinity }}
+        {{- with .Values.affinity.podAntiAffinity }}
         podAntiAffinity:
-  {{ toYaml . | indent 10 }}
-      {{- end }}
+        {{- toYaml . | nindent 10 }}
+        {{- end }}
+      {{- with .Values.hubconfig.tolerations }}
       tolerations:
-        - key: dedicated
-          operator: Exists
-          effect: NoSchedule
-        - effect: NoSchedule 
-          key: node-role.kubernetes.io/infra 
-          operator: Exists
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: application-ui
         image: {{ .Values.global.imageOverrides.application_ui }}
@@ -134,5 +131,5 @@ spec:
             path: applicationui.key
       {{- with .Values.hubconfig.nodeSelector }}
       nodeSelector:
-      {{ toYaml . | indent 8 }}
+      {{- toYaml . | nindent 8 }}
       {{- end }}

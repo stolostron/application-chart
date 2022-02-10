@@ -87,13 +87,10 @@ spec:
                   operator: In
                   values:
                   - consoleapi
+      {{- with .Values.hubconfig.tolerations }}
       tolerations:
-        - key: dedicated
-          operator: Exists
-          effect: NoSchedule
-        - effect: NoSchedule
-          key: node-role.kubernetes.io/infra
-          operator: Exists
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: hcm-ui-api
         image: {{ .Values.global.imageOverrides.console_api }}
@@ -157,5 +154,5 @@ spec:
             path: consoleapi.key
       {{- with .Values.hubconfig.nodeSelector }}
       nodeSelector:
-      {{ toYaml . | indent 8 }}
+      {{- toYaml . | nindent 8 }}
       {{- end }}

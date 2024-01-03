@@ -1,4 +1,4 @@
-> This repository is deprecated. It has been moved to <https://github.com/stolostron/multiclusterhub-operator> as a sub-package `pkg/templates/charts/toggle/console`
+> This repository has been deprecated in ACM 2.6.z and later. It has been moved to <https://github.com/stolostron/multiclusterhub-operator> as a sub-package `pkg/templates/charts/toggle/console`.
 
 # application-chart
 Open Cluster Management Application console Helm chart
